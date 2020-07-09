@@ -66,7 +66,7 @@
     <div class="padding-15">
       <div class="row">
         <div class="col-sm-12">
-          <pfng-toolbar [config]="toolbarConfig" [actionTemplate]="actionTemplate"
+          <pfng-toolbar [config]="toolbarConfig" 
             (onActionSelect)="handleAction($event)" (onFilterChange)="filterChanged($event)"
             (onSelectionChange)="handleSelectionChange($event)" (onSortChange)="handleSortChanged($event)"
             (onViewSelect)="viewSelected($event)">
@@ -76,7 +76,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="form-group">             
-            <pfng-list  [actionTemplate]="actionTemplate" [config]="listConfig" [items]="requirements" (onSelectionChange)="handleSelectionChange($event)"
+            <pfng-list   [config]="listConfig" [items]="requirements" (onSelectionChange)="handleSelectionChange($event)"
               [itemTemplate]="itemTemplate" [expandTemplate]="expandTemplate" [itemHeadingTemplate]="itemHeadingTemplate">
               <ng-template #itemHeadingTemplate let-item="item">
                   <div class="list-pf-content-wrapper">
