@@ -1,0 +1,88 @@
+<div class="col-md-2">
+  <div class="form-group">
+    <label class="control-label">Centro de Costo
+      <i class="fa fa-question-circle text-muted" tooltip="Centro de costo" placement="top"></i>
+    </label>
+    <ng-select class="ng-select-sacpi" [items]="expedients" bindLabel="Alias" bindValue="IdExpediente"
+      placeholder="Seleccione expediente" [(ngModel)]="centroCostoId" (click)="loadContratos()"></ng-select>
+  </div>
+</div>
+
+<!-- <button class="btn btn-primary" (click)="loadContratos()">contratos get </button> -->
+
+<sacpi-loading [loading]="loading">
+  <div class="padding-15">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="form-group">
+          <pfng-toolbar [config]="toolbarConfig" (onFilterChange)="filterChanged($event)"
+            (onSortChange)="sortChanged($event)" (onViewSelect)="viewSelected($event)">
+
+          </pfng-toolbar>
+          <pfng-list [config]="listConfig" [items]="contratos" [itemTemplate]="itemTemplate">
+            <ng-template #itemTemplate let-item="item" let-index="index">
+              <!-- <div class="list-pf-left">
+                <span *ngIf="item.Status" class="fa fa-list-alt  list-pf-icon list-pf-icon-bordered list-pf-icon-small" tooltip="Requerimiento confirmado"
+                  placement="top"></span>
+                <span *ngIf="!item.Status" class="fa fa-list-alt  list-pf-icon list-pf-icon-bordered-confirm list-pf-icon-small" tooltip="Requerimiento sin confirmar (en temporal y/o borrador)"
+                  placement="top"></span>
+              </div> -->
+              <div>
+                <i class="fa fa-list-alt  list-pf-icon list-pf-icon-bordered list-pf-icon-small"></i>
+              </div>
+              <div class="list-pf-content-wrapper">
+                <div class="list-pf-main-content">
+                  <!-- <div class="list-pf-title">
+                    <span *ngIf="item.Status">{{item.CodigoContrato}}</span>
+                    <span *ngIf="!item.Status" class="list-temporal">{{item.descripcionTipoContrato}}</span>
+                  </div> -->
+                  <div class="list-pf-description list-group-item-text">{{item.CodigoContrato}}</div>
+                  <div class="list-pf-description list-group-item-text">{{item.Proveedor}}</div>           
+                  <div class="list-pf-description list-group-item-text">{{item.Referencia}}</div>
+                </div>
+                <div class="list-pf-additional-content">
+                  <div>
+                    <span class="fa fa-money" tooltip="Fecha de creación" placement="top"></span>
+                    Tipo
+                    <strong> {{item.TipoContrato}}</strong>
+                  </div>
+                  <div>
+                    <span class="fa fa-money" tooltip="Fecha de creación" placement="top"></span>
+                    Monto
+                    <strong> {{item.Moneda}} {{item.Monto}}</strong>
+                  </div>
+                  <div>
+                    <span class="fa fa-calendar-plus-o" tooltip="Fecha de creación" placement="top"></span>
+                    Plazo
+                    <strong> {{item.Plazo}} dias</strong>
+                  </div>
+                  <div>
+                    <span class="fa fa-truck" tooltip="Fecha de creación" placement="top"></span>
+                    Pago
+                    <strong> {{item.PorcentajeAvance | percent}}</strong>
+                  </div>
+                  <div>
+                    <span class="fa fa-calendar" tooltip="Fecha de creación" placement="top"></span>
+                    Creado
+                    <strong> {{item.FechaContratoDate| date:"dd/MM/yy"}}</strong>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+            <!-- <ng-template #actionTemplate let-item="item" let-index="index">
+              <pfng-action class="list-pf-actions" [config]="getActionConfig(item, actionButtonTemplate)" (onActionSelect)="handleActionGrid($event, item)">
+                <ng-template #actionButtonTemplate let-action="action">
+                  <span class="fa fa-pencil">&nbsp;</span>{{action.title}}
+                </ng-template>
+              </pfng-action>
+            </ng-template>  -->
+          </pfng-list>
+          <pfng-pagination [config]='paginationConfig' (onPageSizeChange)="handlePageSize($event)"
+            (onPageNumberChange)="handlePageNumber($event)"></pfng-pagination>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+  </div>
+</sacpi-loading>

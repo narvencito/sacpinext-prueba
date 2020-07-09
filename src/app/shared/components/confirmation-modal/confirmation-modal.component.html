@@ -1,0 +1,18 @@
+<form (ngSubmit)="onConfirm()" *ngIf="active">
+  <div class="modal-header">
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Eliminacion</h4>
+  </div>
+  <div class="modal-body">
+    <p>¿{{body}}
+      <b>{{data}}</b>.?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" class="btn btn-danger">
+        <span class="fa fa-trash-o"></span> Eliminar</button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">
+      <span class="fa fa-ban"></span> Cancelar</button>
+  </div>
+</form>

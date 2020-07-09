@@ -1,0 +1,16 @@
+<div class="sacpi-fluid layout-pf layout-pf-fixed faux-layout">
+  <pfng-vertical-navigation [brandAlt]="'Sacpi | Next Enterprise Application'" [brandSrc]="'/assets/img/brand-alt.svg'" [contentContainer]="content"
+    [items]="navigationItems" [persistentSecondary]="false" [pinnableMenus]="true" [showBadges]="true" [showIcons]="true" [updateActiveItemsOnClick]="true"
+    (onItemClickEvent)="onItemClicked($event)">
+    <div>
+      <sacpi-shell-header></sacpi-shell-header>
+    </div>
+  </pfng-vertical-navigation>
+  <div #content class="container-fluid container-cards-pf container-pf-nav-pf-vertical nav-pf-vertical-with-badges">
+    <sacpi-shell-content>
+      <router-outlet></router-outlet>
+    </sacpi-shell-content>
+  </div>
+  <hr/>
+  <sacpi-shell-footer></sacpi-shell-footer>
+</div>

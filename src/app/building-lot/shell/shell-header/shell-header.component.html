@@ -1,0 +1,29 @@
+<ul class="nav navbar-nav navbar-right navbar-iconic">
+  <li class="dropdown" dropdown>
+    <a class="dropdown-toggle nav-item-iconic" href="javascript:void(0);" dropdownToggle>
+      <span title="Help" class="fa pficon-help"></span>
+      <span class="caret"></span>
+    </a>
+    <ul *dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li>
+        <a href="javascript:void(0);" (click)="aboutModal.open()">Acerca de</a>
+      </li>
+    </ul>
+  </li>
+  <li class="dropdown" dropdown>
+    <a class="dropdown-toggle nav-item-iconic" href="javascript:void(0);" dropdownToggle>
+      <span title="Username" class="fa pficon-user"></span> {{user.username}}
+      <span class="caret"></span>
+    </a>
+    <ul *dropdownMenu class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <li>
+        <a routerLink="acount">Administrar Cuenta</a>
+      </li>
+      <li class="divider"></li>
+      <li>
+        <a href="javascript:void(0);" (click)="logout()">Cerrar Sessión</a>
+      </li>
+    </ul>
+  </li>
+</ul>
+<sacpi-about-modal #aboutModal></sacpi-about-modal>
